@@ -1,5 +1,9 @@
 import './App.css'
-import CardBooks from './components/CardBooks'
+
+// importando o MENU
+import NavBar from './components/Layout/NavBar'
+
+// import CardBooks from './components/CardBooks'
 import capaLivro from './assets/livros/cavernas_aco.jpg'
 
 function App() {
@@ -7,11 +11,7 @@ function App() {
   return (
     <>
 
-      <CardBooks
-      titulo ='As Cavernas De Aço'
-      autor ='Isaac Azimov'
-      imagem={capaLivro}
-      />
+      <NavBar/>
 
     </>
   )
