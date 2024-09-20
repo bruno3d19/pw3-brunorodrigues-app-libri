@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 import style from './CreateBooks.module.css'
 
 import Input from "../Forms/Input";
@@ -6,6 +8,30 @@ import Select from "../Forms/Select";
 import Button from "../Forms/Button";
 
 const CreateBooks = ()=>{
+
+    //RECUPERA OS DADOS DE CATEGORIA DA APIREST
+    useEffect(()=>{
+        fetch('http://localhost:5000/listagemCateorias', {
+            method:'GET',
+            headers:{
+                'Content-Type':'applicatio/json',
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Headers':'*',
+            }
+        }).then(
+            (resp)=>
+                // console.log('RESPOSTA' + resp)
+                resp.json()
+        ).then(
+            (data)=>{
+                console.log('DATA' + data)
+            }
+        ).catch(
+            (error)=>{
+                console.log(error)
+            }
+        )
+    }, []);
 
     return(
         <section className={style.create_book_container}>
