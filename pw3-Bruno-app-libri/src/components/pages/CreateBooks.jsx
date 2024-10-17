@@ -22,6 +22,12 @@ const CreateBooks = ()=>{
         console.log(book)
     }
 
+     /* CAPTURA OS DADOS DA SELECT */
+     function handleChangeCategory(event) {
+        setBook({...book, cod_categoria: event.target.value});
+        console.log(book);
+    }
+
 
     //RECUPERA OS DADOS DE CATEGORIA DA APIREST
     useEffect(()=>{
@@ -118,6 +124,7 @@ const CreateBooks = ()=>{
                 name='categoria'
                 text='Escolha uma categoria de livro'
                 options={categorias}
+                handleChangeCategory={handleChangeCategory}
             />
 
             <Button
